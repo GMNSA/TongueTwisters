@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="external.jpg">resources/external.jpg</file>
+        <file>resources/mask.svg</file>
+        <file>resources/kitty.svg</file>
+        <file>resources/spider.svg</file>
+        <file>resources/cauldron.svg</file>
+    </qresource>
+</RCC>

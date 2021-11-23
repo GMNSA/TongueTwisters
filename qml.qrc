@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="main.qml">qml/main.qml</file>
+        <file>qml/ModuleHeader/qmldir</file>
+        <file>qml/ModuleHeader/HeaderCustom.qml</file>
+        <file>qml/StyleConfig/qmldir</file>
+        <file>qml/StyleConfig/Style.qml</file>
+        <file>qml/ModuleTwisters/qmldir</file>
+        <file>qml/ModuleTwisters/MainPage/MainPageImpl.qml</file>
+        <file>qml/ModuleTwisters/MainPage/qmldir</file>
+        <file>qml/ModuleTwisters/BreathingExercisesPage/BreathingExercisesImpl.qml</file>
+        <file>qml/ModuleTwisters/BreathingExercisesPage/qmldir</file>
+        <file>qml/ModuleTwisters/Tile/qmldir</file>
+        <file>qml/ModuleTwisters/Tile/TileImpl.qml</file>
+        <file>qml/qml.qrc</file>
+        <file>qml/ModuleTwisters/ClassicsPage/ClassicsImpl.qml</file>
+        <file>qml/ModuleTwisters/ClassicsPage/qmldir</file>
+        <file>qml/ModuleTwisters/PoemsPage/PoemsImpl.qml</file>
+        <file>qml/ModuleTwisters/PoemsPage/qmldir</file>
+        <file>qml/ModuleTwisters/VoicePage/qmldir</file>
+        <file>qml/ModuleTwisters/VoicePage/VoiceImpl.qml</file>
+    </qresource>
+</RCC>

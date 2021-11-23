@@ -1,0 +1,2 @@
+module VoicePage
+VoiceImpl 1.0 VoiceImpl.qml
