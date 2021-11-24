@@ -5,5 +5,6 @@
         <file>resources/kitty.svg</file>
         <file>resources/spider.svg</file>
         <file>resources/cauldron.svg</file>
+        <file alias="sorting.svg">resources/sorting.svg</file>
     </qresource>
 </RCC>

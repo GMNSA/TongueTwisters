@@ -19,5 +19,7 @@
         <file>qml/ModuleTwisters/PoemsPage/qmldir</file>
         <file>qml/ModuleTwisters/VoicePage/qmldir</file>
         <file>qml/ModuleTwisters/VoicePage/VoiceImpl.qml</file>
+        <file>qml/ModuleTwisters/WrapperText/qmldir</file>
+        <file>qml/ModuleTwisters/WrapperText/WrapperTextImpl.qml</file>
     </qresource>
 </RCC>

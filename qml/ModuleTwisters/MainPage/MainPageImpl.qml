@@ -24,16 +24,19 @@ Page {
     ClassicsImpl {
         id: _classicsPage
         visible: false
+
     }
 
     VoiceImpl {
         id: _VoicePage
         visible: false
+
     }
 
     PoemsImpl {
         id: _poemsPage
         visible: false
+
     }
 
     Item {
@@ -67,6 +70,7 @@ Page {
                 fText: "Классика"
 
                 onCustomClick: {
+                    _header.ftext = "Classics"
                     _stack.push(_classicsPage)
                 }
             }
@@ -82,6 +86,7 @@ Page {
                 fText: "Стихи"
 
                 onCustomClick: {
+                    _header.ftext = "Poems"
                     _stack.push(_poemsPage)
                 }
             }
@@ -97,6 +102,7 @@ Page {
                 fText: "Дыхательная \n гимнастика"
 
                 onCustomClick: {
+                    _header.ftext = "BreathingExercises"
                     _stack.push(_breathingPage)
                 }
             }
@@ -112,6 +118,7 @@ Page {
                 fText: "Голос"
 
                 onCustomClick: {
+                    _header.ftext = "Voice"
                     _stack.push(_VoicePage)
                 }
             }

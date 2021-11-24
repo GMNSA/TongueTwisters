@@ -11,4 +11,6 @@ QtObject {
 
     property color fcolorTile: isDarkTheme ?  "#D9C3CC"  : "#877B7B"
                                            // : "#362A2A"
+
+    property color fheaderColor: isDarkTheme ?  "#FAFAFA"  : "#303030"
 }
