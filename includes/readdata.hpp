@@ -1,6 +1,7 @@
 #ifndef READDATA_HPP
 #define READDATA_HPP
 
+#include "processor.hpp"
 #include <QString>
 #include <QVector>
 

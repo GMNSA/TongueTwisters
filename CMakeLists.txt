@@ -15,6 +15,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/examples)
 
+# set(LIB_DBMANAGER_CODE_HEADERS${CMAKE_CURRENT_SOURCE_DIR}/lib/DBManager/includes)
+
 set(QML_IMPORT_PATH ${CMAKE_CURRENT_LIST_DIR}/qml
     CACHE STRING "Qt Creator 5.15 extra qml import paths"
     FORCE)
@@ -28,6 +30,7 @@ set(PROJECT_HEADERS
         includes/modeltonguetwisters.hpp
         includes/readdata.hpp
         ${QML_IMPORT_PATH}
+        # ${LIB_DBMANAGER_CODE_HEADERS}
     )
 
 set(PROJECT_SOURCES
@@ -37,6 +40,7 @@ set(PROJECT_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/qml.qrc
         ${CMAKE_CURRENT_LIST_DIR}/resources.qrc
         ${CMAKE_CURRENT_LIST_DIR}/application.qrc
+        ${CMAKE_CURRENT_LIST_DIR}/databases.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -65,9 +69,12 @@ target_include_directories(TongueTwisters
     )
 
 
+find_package(dbManager)
+
 target_compile_definitions(TongueTwisters
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(TongueTwisters
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Svg)
+  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Svg dbManager)
 
 add_subdirectory(tests)
+add_subdirectory(lib)
