@@ -4,7 +4,8 @@ import QtQuick.Layouts 1.3
 
 import StyleConfig 1.0
 import QtQuick.Controls.Material 2.3
-import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.15
+
 
 ToolBar {
     property string ftext: "anonim"
@@ -21,8 +22,6 @@ ToolBar {
                 console.log("depth: " << _stack.depth)
                 _stack.pop()
             }
-
-
         }
 
         Label {
@@ -49,8 +48,8 @@ ToolBar {
             }
 
             ColorOverlay {
-                anchors.fill:  Style.isDarkTheme ? _imageSort : ""
-                source: Style.isDarkTheme ? _imageSort : ""
+                anchors.fill:  Style.isDarkTheme ? _imageSort : _imageSort
+                source: _imageSort
                 color: "#8E9597"
                 scale: 0.5
                 antialiasing: true
@@ -123,7 +122,7 @@ ToolBar {
         // color: Qt.darker("#33333333", control.enabled && (control.checked || control.highlighted) ? 1.5 : 1.0)
         color: Style.fheaderColor
         opacity: enabled ? 1 : 0.3
-        visible: control.down || (control.enabled && (control.checked || control.highlighted))
+        // visible: control.down || (control.enabled && (control.checked || control.highlighted))
     }
 }
 

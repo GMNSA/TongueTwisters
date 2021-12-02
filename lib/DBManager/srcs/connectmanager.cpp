@@ -130,7 +130,8 @@ ConnectManager::ConnectManagerPrivate::setupWorkSpace()
   auto const localPath =
     QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
 
-  QString const pathToApp = localPath + "/" + dirName;
+  // QString const pathToApp = localPath + "/" + dirName;
+  QString const pathToApp = localPath;
 
   qDebug() << "path: " << pathToApp;
 
@@ -159,7 +160,7 @@ ConnectManager::ConnectManagerPrivate::setupDatabase()
   bool resultPermission{ false };
 
   if (!file.exists()) {
-    result = QFile::copy(":/tongueTwister.db", filename);
+    result = QFile::copy(":/tongueTwisters.db", filename);
     resultPermission = QFile(filename).setPermissions(QFileDevice::ReadOwner |
                                                       QFileDevice::WriteOwner);
 

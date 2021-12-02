@@ -11,9 +11,11 @@ public:
   ReadData();
   virtual ~ReadData();
 
-  QVector<QString> request();
+  QVector<QString> request(QString const tablename_);
 
 private:
+  db::Processor* m_processor;
+  QVector<QString> m_data;
 };
 
 #endif // READDATA_HPP

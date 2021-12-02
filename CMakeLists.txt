@@ -27,16 +27,24 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick Svg LREQUIRED)
 
 
 set(PROJECT_HEADERS
-        includes/modeltonguetwisters.hpp
+        includes/modelclassics.hpp
         includes/readdata.hpp
+		includes/imodel.hpp
+		includes/modelpoems.hpp
+		includes/modelvoice.hpp
+		includes/modelbreathing.hpp
         ${QML_IMPORT_PATH}
         # ${LIB_DBMANAGER_CODE_HEADERS}
     )
 
 set(PROJECT_SOURCES
-        srcs/modeltonguetwisters.cpp
+        srcs/modelclassics.cpp
         srcs/readdata.cpp
         srcs/main.cpp
+		srcs/imodel.cpp
+		srcs/modelpoems.cpp
+		srcs/modelvoice.cpp
+		srcs/modelbreathing.cpp
         ${CMAKE_CURRENT_LIST_DIR}/qml.qrc
         ${CMAKE_CURRENT_LIST_DIR}/resources.qrc
         ${CMAKE_CURRENT_LIST_DIR}/application.qrc

@@ -1,39 +1,45 @@
 #include "readdata.hpp"
 
+#include "dbtype.hpp"
+#include <QDebug>
 #include <QVector>
 
-static const QVector<QString> moc_data{
-  { "Во дворе трава на траве дрова, не руби дрова на траве двора." },
-  { "Всех скороговорок не переговорить, не перескороговорить, "
-    "не перевыскороговорить. Шла Саша по шоссе и сосала сушку." },
-  { "В четверг четвертого числа в четыре с четвертью часа четыре черненьких "
-    "чумазеньких чертенка чертили черными чернилами чертеж чрезвычайно "
-    "чисто." },
-  { "– Расскажи мне про покупку! – Про какую про покупку? –"
-    " Про такую про покупку, про покупку, про покупку,"
-    " про покупочку свою. Шел Грека через реку, видит Грека — в реке рак."
-    " Сунул Грека руку в реку, рак за руку Греку — цап!" },
-  { "33 корабля лавировали, лавировали да не вылавировали." },
-  { "Корабли лавировали, лавировали, да не вылавировали,"
-    " ведь не веровали в вероятность вылавировать,"
-    " а веровали бы – вылавировали бы." },
-  { "От топота копыт пыль по полю летит." },
-  { "Бык тупогуб, тупогубенький бычок, у быка бела губа была тупа."
-    " Сшит колпак не по-колпаковски, надо бы колпак переколпаковать,"
-    " перевыколпаковать. Кукушка кукушонку купила капюшон, надел кукушонок "
-    "капюшон,"
-    " как в капюшоне кукушонок смешон." },
-  { "Белый снег, белый мел, Белый заяц тоже бел. А вот белка не бела — Белой "
-    "даже не была."
-    "  скороговорка" }
-};
+ReadData::ReadData()
+  : m_processor(new db::Processor)
+{}
 
-ReadData::ReadData() {}
-
-ReadData::~ReadData() {}
+ReadData::~ReadData()
+{
+  if (m_processor)
+    delete m_processor;
+}
 
 QVector<QString>
-ReadData::request()
+ReadData::request(QString const tablename_)
 {
-  return { moc_data };
+  eDBType type{};
+
+  if (tablename_ == gNameDbType[eDBType::CLASSICS]) {
+    type = eDBType::CLASSICS;
+  } else if (tablename_ == gNameDbType[eDBType::BREATHING]) {
+    type = eDBType::BREATHING;
+  } else if (tablename_ == gNameDbType[eDBType::POEMS]) {
+    type = eDBType::POEMS;
+  } else if (tablename_ == gNameDbType[eDBType::VOICE]) {
+    type = eDBType::VOICE;
+  }
+
+  auto [result, data] = m_processor->requestData(type);
+
+  if (result) {
+    size_t nData = data.at(0).count();
+    m_data.reserve(nData);
+
+    for (size_t i{ 0 }; i < nData; ++i) {
+      m_data.push_back(data.at(0).at(i).toString());
+    }
+  } else {
+    qCritical("[ERROR] Data didn't get.");
+  }
+  return { m_data };
 }

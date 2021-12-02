@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="tongueTwister.db">dbase/tongueTwister.db</file>
+        <file alias="tongueTwisters.db">dbase/tongueTwisters.db</file>
     </qresource>
 </RCC>

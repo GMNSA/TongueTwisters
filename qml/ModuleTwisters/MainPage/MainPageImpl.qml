@@ -11,7 +11,7 @@ import ModuleTwisters.PoemsPage 1.0
 Page {
     id: _root
 
-    property real fwidth: value
+    property real fwidth: 100
     property int fspacing: 10
     property int fPixelSize: 22
 
@@ -19,6 +19,7 @@ Page {
     BreathingExercisesImpl {
         id: _breathingPage
         visible: false
+
     }
 
     ClassicsImpl {

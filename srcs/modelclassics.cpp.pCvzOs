@@ -1,0 +1,44 @@
+/* modeltonguetwisters.cpp */
+
+#include "modelclassics.hpp"
+#include "dbtype.hpp"
+
+ModelClassics::ModelClassics(QObject* parent)
+  : QAbstractListModel(parent)
+  , m_readData(new ReadData)
+  , m_classics(m_readData->request(gNameDbType[eDBType::CLASSICS]))
+  , m_poems(m_readData->request(gNameDbType[eDBType::POEMS]))
+  , m_voice(m_readData->request(gNameDbType[eDBType::VOICE]))
+  , m_breathing(m_readData->request(gNameDbType[eDBType::BREATHING]))
+{
+  qDebug() << "nClasscis: " << m_classics.size();
+  qDebug() << "nPoems: " << m_poems.size();
+  qDebug() << "nVoice: " << m_voice.size();
+  qDebug() << "nBreak: " << m_breathing.size();
+}
+
+ModelClassics::~ModelClassics()
+{
+  if (m_readData)
+    delete m_readData;
+}
+
+int
+ModelClassics::rowCount(const QModelIndex& parent) const
+{
+  Q_UNUSED(parent);
+  // qDebug() << "rowCount: " << getData().size();
+  return getData().size();
+  // return (m_classics.size());
+}
+
+QVariant
+ModelClassics::data(const QModelIndex& index, int role) const
+{
+  // qDebug() << "m_table: " << m_table;
+  if (!index.isValid() || role != Qt::DisplayRole ||
+      (unsigned long)index.row() > (unsigned long)getData().size())
+    return {};
+
+  return QVariant::fromValue(getData().at(index.row()));
+}
