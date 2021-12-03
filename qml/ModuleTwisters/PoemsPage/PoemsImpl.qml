@@ -1,16 +1,12 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.5
-import alpha.modelpoems 1.0
 import ModuleTwisters.WrapperText 1.0
 
 
 Page {
     id: _root
 
-
-    ModelPoems {
-        id: _modelPoems
-    }
+    signal sorting()
 
     ListView {
         id: _listView
@@ -38,5 +34,9 @@ Page {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.margins: 20
+    }
+
+    onSorting: {
+        _modelPoems.sorting()
     }
 }

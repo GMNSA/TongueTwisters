@@ -1,16 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.5
 
-import alpha.modelbreathing 1.0
 import ModuleTwisters.WrapperText 1.0
 
 
 Page {
     id: _root
 
-    ModelBreathing {
-        id: _modelBreathing
-    }
+    signal sorting()
 
     ListView {
         id: _listView
@@ -39,5 +36,9 @@ Page {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.margins: 20
+    }
+
+    onSorting: {
+        _modelBreathing.sorting()
     }
 }

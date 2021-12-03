@@ -2,6 +2,7 @@
 
 #include "modelbreathing.hpp"
 #include "dbtype.hpp"
+#include <random>
 
 ModelBreathing::ModelBreathing(QObject* parent)
   : IModel(parent)
@@ -13,6 +14,15 @@ ModelBreathing::~ModelBreathing()
 {
   if (m_pReadData)
     delete m_pReadData;
+}
+
+void
+ModelBreathing::sorting()
+{
+  beginResetModel();
+  std::random_shuffle(std::begin(m_data), std::end(m_data));
+  emit dataChanged(createIndex(0, 0), createIndex(m_data.size(), 0));
+  endResetModel();
 }
 
 int

@@ -16,6 +16,8 @@ public:
   virtual ~ModelClassics();
   Q_DISABLE_COPY_MOVE(ModelClassics);
 
+  Q_INVOKABLE void sorting();
+
 public:
   virtual int rowCount(const QModelIndex& parent) const override;
   virtual QVariant data(const QModelIndex& index, int role) const override;

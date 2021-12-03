@@ -8,10 +8,14 @@
 
 class ModelBreathing : public IModel
 {
+  Q_OBJECT
 public:
   ModelBreathing(QObject* parent = nullptr);
   virtual ~ModelBreathing();
   Q_DISABLE_COPY_MOVE(ModelBreathing);
+
+  // IModel interface
+  Q_INVOKABLE virtual void sorting() override;
 
   // IModel interface
 public:

@@ -14,6 +14,10 @@ public:
   virtual ~ModelVoice();
   Q_DISABLE_COPY_MOVE(ModelVoice);
 
+  // IModel interface
+public:
+  Q_INVOKABLE virtual void sorting() override;
+  // IModel interface
 public:
   virtual int rowCount(const QModelIndex& parent) const override;
   virtual QVariant data(const QModelIndex& index, int role) const override;

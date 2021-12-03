@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.5
 
-import alpha.modelclassics 1.0
 import ModuleTwisters.WrapperText 1.0
 
 import ModuleHeader 1.0
@@ -9,10 +8,7 @@ import ModuleHeader 1.0
 Page {
     id: _root
 
-
-    ModelClassics {
-        id: _modelClassics
-    }
+    signal sorting();
 
     ListView {
         id: _listView
@@ -35,10 +31,16 @@ Page {
 
         onClicked: {
             _listView.positionViewAtBeginning()
+
         }
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.margins: 20
+    }
+
+
+    onSorting: {
+        _modelClassics.sorting()
     }
 }

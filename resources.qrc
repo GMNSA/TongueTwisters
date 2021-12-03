@@ -1,10 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="external.jpg">resources/external.jpg</file>
-        <file>resources/mask.svg</file>
-        <file>resources/kitty.svg</file>
-        <file>resources/spider.svg</file>
-        <file>resources/cauldron.svg</file>
         <file alias="sorting.svg">resources/sorting.svg</file>
+		<file>resources/sneezing_spread_custom.png</file>
+		<file>resources/coughing_cough.png</file>
+		<file>resources/dizziness_dizzy_custom.png</file>
+		<file>resources/headache_head_custom.png</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@
 
 #include "modelclassics.hpp"
 #include "dbtype.hpp"
+#include "random"
 
 ModelClassics::ModelClassics(QObject* parent)
   : IModel(parent)
@@ -13,6 +14,15 @@ ModelClassics::~ModelClassics()
 {
   if (m_readData)
     delete m_readData;
+}
+
+void
+ModelClassics::sorting()
+{
+  beginResetModel();
+  std::random_shuffle(std::begin(m_classics), std::end(m_classics));
+  emit dataChanged(createIndex(0, 0), createIndex(m_classics.size(), 0));
+  endResetModel();
 }
 
 int

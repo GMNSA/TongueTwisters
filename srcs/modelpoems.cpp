@@ -1,6 +1,7 @@
 /* modelpoems.cpp */
 
 #include "modelpoems.hpp"
+#include <random>
 
 ModelPoems::ModelPoems(QObject* parent)
   : IModel(parent)
@@ -12,6 +13,15 @@ ModelPoems::~ModelPoems()
 {
   if (m_readData)
     delete m_readData;
+}
+
+void
+ModelPoems::sorting()
+{
+  beginResetModel();
+  std::random_shuffle(std::begin(m_poems), std::end(m_poems));
+  emit dataChanged(createIndex(0, 0), createIndex(m_poems.size(), 0));
+  endResetModel();
 }
 
 int

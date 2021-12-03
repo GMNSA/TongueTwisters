@@ -15,6 +15,11 @@ Page {
     property int fspacing: 10
     property int fPixelSize: 22
 
+    property alias fpoems: _poemsPage
+    property alias fvoice: _VoicePage
+    property alias fclassics: _classicsPage
+    property alias fbreathing: _breathingPage
+
 
     BreathingExercisesImpl {
         id: _breathingPage
@@ -25,7 +30,6 @@ Page {
     ClassicsImpl {
         id: _classicsPage
         visible: false
-
     }
 
     VoiceImpl {
@@ -67,7 +71,8 @@ Page {
 
                 fSize: Math.min(parent.width, parent.height) / fPixelSize
 
-                fImage: "qrc:/resources/cauldron.svg"
+                // fImage: "qrc:/resources/cauldron.svg"
+                fImage: "qrc:/resources/coughing_cough.png"
                 fText: "Классика"
 
                 onCustomClick: {
@@ -83,7 +88,8 @@ Page {
 
                 fSize: Math.min(parent.width, parent.height) / fPixelSize
 
-                fImage: "qrc:/resources/kitty.svg"
+                // fImage: "qrc:/resources/kitty.svg"
+                fImage: "qrc:/resources/dizziness_dizzy_custom.png"
                 fText: "Стихи"
 
                 onCustomClick: {
@@ -99,7 +105,8 @@ Page {
 
                 fSize: Math.min(parent.width, parent.height) / fPixelSize
 
-                fImage: "qrc:/resources/mask.svg"
+                // fImage: "qrc:/resources/mask.svg"
+                fImage: "qrc:/resources/headache_head_custom.png"
                 fText: "Дыхательная \n гимнастика"
 
                 onCustomClick: {
@@ -115,7 +122,8 @@ Page {
 
                 fSize: Math.min(parent.width, parent.height) / fPixelSize
 
-                fImage: "qrc:/resources/spider.svg"
+                // fImage: "qrc:/resources/spider.svg"
+                fImage: "qrc:/resources/sneezing_spread_custom.png"
                 fText: "Голос"
 
                 onCustomClick: {

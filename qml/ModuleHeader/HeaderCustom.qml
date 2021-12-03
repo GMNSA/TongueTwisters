@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.3
 import StyleConfig 1.0
 import QtQuick.Controls.Material 2.3
 import QtGraphicalEffects 1.15
+import alpha.modelclassics 1.0
 
 
 ToolBar {
@@ -76,8 +77,8 @@ ToolBar {
             id: _menu
 
             MenuItem {
-                text: Style.isDarkTheme ? "Light" :
-                                          "Black"
+                text: Style.isDarkTheme ? "Black" :
+                                          "Light"
 
                 onTriggered: {
                     Style.isDarkTheme = Style.isDarkTheme ? false :
@@ -104,10 +105,11 @@ ToolBar {
             id: _menuSort
 
             MenuItem {
-                text: qsTr("Sorting")
+                id: _menuItemSorting
+                text: qsTr("Shuffle")
 
                 onTriggered: {
-                    console.log("SORTING")
+                    _stack.currentItem.sorting()
                 }
             }
         }

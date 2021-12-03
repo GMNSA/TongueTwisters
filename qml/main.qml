@@ -7,6 +7,11 @@ import StyleConfig 1.0
 import ModuleHeader 1.0
 import ModuleTwisters.MainPage 1.0
 
+import alpha.modelclassics 1.0
+import alpha.modelbreathing 1.0
+import alpha.modelpoems 1.0
+import alpha.modelvoice 1.0
+
 ApplicationWindow {
     width: 640
     height: 480
@@ -16,9 +21,29 @@ ApplicationWindow {
     Material.theme: Style.isDarkTheme ? Material.Light :
                                         Material.Dark
 
-    header: HeaderCustom {
+    menuBar: HeaderCustom {
         id: _header
     }
+
+    // --- models ---
+
+    ModelClassics {
+        id: _modelClassics
+    }
+
+    ModelBreathing {
+        id: _modelBreathing
+    }
+
+    ModelPoems {
+        id: _modelPoems
+    }
+
+    ModelVoice {
+        id: _modelVoice
+    }
+
+    // ---        ---
 
     StackView {
         id: _stack

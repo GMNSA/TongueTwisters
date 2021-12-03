@@ -5,7 +5,6 @@ import QtQuick.Controls 2.5
 Item {
     id: _root
 
-    // width: parent.width
     height: _separator.height + _text.height
 
 
@@ -14,10 +13,6 @@ Item {
         anchors.fill: parent
 
         color: "transparent"
-
-        // clip: true
-
-        // color: Qt.rgba(Math.random(), Math.random(), Math.random())
 
         Label {
             id: _text
@@ -36,11 +31,6 @@ Item {
 
         Text {
             id: _separator
-            // anchors.left: parent.left
-            // anchors.right: parent.right
-            // anchors.top: _text.bottom
-            // anchors.bottom: parent.bottom
-            // anchors.topMargin: 20
             anchors.top: _text.bottom
             anchors.topMargin: 10
 

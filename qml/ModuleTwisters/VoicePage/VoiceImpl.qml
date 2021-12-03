@@ -1,17 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.5
 
-import alpha.modelvoice 1.0
 import ModuleTwisters.WrapperText 1.0
 
 
 Page {
     id: _root
 
-
-    ModelVoice {
-        id: _modelVoice
-    }
+    signal sorting()
 
     ListView {
         id: _listView
@@ -39,5 +35,9 @@ Page {
             anchors.right: parent.right
             anchors.margins: 20
         }
+    }
+
+    onSorting: {
+        _modelVoice.sorting()
     }
 }
