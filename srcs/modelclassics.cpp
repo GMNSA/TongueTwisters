@@ -2,7 +2,7 @@
 
 #include "modelclassics.hpp"
 #include "dbtype.hpp"
-#include "random"
+#include <random>
 
 ModelClassics::ModelClassics(QObject* parent)
   : IModel(parent)
@@ -20,7 +20,12 @@ void
 ModelClassics::sorting()
 {
   beginResetModel();
-  std::random_shuffle(std::begin(m_classics), std::end(m_classics));
+
+  auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+  std::shuffle(std::begin(m_classics),
+               std::end(m_classics),
+               std::default_random_engine(seed));
+  // std::random_shuffle(std::begin(m_classics), std::end(m_classics));
   emit dataChanged(createIndex(0, 0), createIndex(m_classics.size(), 0));
   endResetModel();
 }

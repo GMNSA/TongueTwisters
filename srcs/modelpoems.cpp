@@ -19,7 +19,10 @@ void
 ModelPoems::sorting()
 {
   beginResetModel();
-  std::random_shuffle(std::begin(m_poems), std::end(m_poems));
+  auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+  std::shuffle(
+    std::begin(m_poems), std::end(m_poems), std::default_random_engine(seed));
+  // std::random_shuffle(std::begin(m_poems), std::end(m_poems));
   emit dataChanged(createIndex(0, 0), createIndex(m_poems.size(), 0));
   endResetModel();
 }

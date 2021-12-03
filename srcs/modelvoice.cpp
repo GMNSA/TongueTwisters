@@ -1,6 +1,7 @@
 /* modelvoice.cpp */
 
 #include "modelvoice.hpp"
+#include <random>
 
 ModelVoice::ModelVoice(QObject* parent)
   : IModel(parent)
@@ -18,7 +19,10 @@ void
 ModelVoice::sorting()
 {
   beginResetModel();
-  std::random_shuffle(std::begin(m_data), std::end(m_data));
+  // std::random_shuffle(std::begin(m_data), std::end(m_data));
+  auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+  std::shuffle(
+    std::begin(m_data), std::end(m_data), std::default_random_engine(seed));
   emit dataChanged(createIndex(0, 0), createIndex(m_data.size(), 0));
   endResetModel();
 }
